@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model member {
+  id                   Int      @id @default(autoincrement())
+  member_id            String   @unique
+  father_id            String?  // Allow null values
+  spouse_id            String?  // Allow null values
+  family_id            Int?  // Allow null values
+  if_expired           String?  // Allow null values
+  member_name          String
+  gender               String
+  age                  String
+  caste                String
+  sub_caste            String
+  petname              String?  // Allow null values
+  marital_status       String
+  full_address         String
+  pincode              Int
+  city                 String
+  state                String
+  education            String?  // Allow null values
+  occupation           String?  // Allow null values
+  occupation_specific_sector  String?  // Allow null values
+  occupation_category  String?  // Allow null values
+  mobile_number        String?  // Allow null values
+  email                String?  // Allow null values
+  aadhaar              String?  // Allow null values
+}
+
+
